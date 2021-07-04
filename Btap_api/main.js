@@ -29,14 +29,21 @@ create.addEventListener('click', f_post);
 // get one
 
 function f_getOne(){
-    
-    fetch(`https://todonew412.herokuapp.com/api/get/${text.value}`)
-        .then((response) => response.json())
-        .then((json) => show_one(json));
-
+    if(text.value.trim() == ''){
+        text.value = ''
+        alert('vui lòng nhập ID hợp lệ')
+    }else{
+        fetch(`https://todonew412.herokuapp.com/api/get/${text.value}`)
+            .then((response) => response.json())
+            .then((json) => show_one(json))
+    }
 }
 
 function show_one(json){
+    if(typeof json == 'object'){
+        console.log(json)
+        console.log(typeof json)
+
         tbody_list.innerHTML = ''
         list_data.style.display = 'block'
         let tr = document.createElement('tr');
@@ -48,7 +55,12 @@ function show_one(json){
         th_handle.innerHTML = `<button onclick='f_delete(${json._id})' class='btn btn-danger'>Delete</button> <button onclick='f_edit(${json._id})' class='btn btn-success'>Edit</button>`
         tr.append(th_id, th_name, th_handle)
         tbody_list.append(tr)
-
+    }else{
+        tbody_list.innerHTML = ''
+        alert(json)
+        console.log(json)
+        console.log(typeof json)
+    }
 }
 
 get_one.addEventListener('click', f_getOne);
