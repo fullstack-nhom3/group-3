@@ -47,16 +47,19 @@ function show_one(json){
         tbody_list.innerHTML = ''
         list_data.style.display = 'block'
         let tr = document.createElement('tr');
+        let th_stt = document.createElement('th');
         let th_id = document.createElement('th');
         let th_name = document.createElement('th');
         let th_handle = document.createElement('th')
+        th_stt.innerHTML = 1
         th_id.innerHTML = json._id
         th_name.innerHTML = json.name
         th_handle.innerHTML = `<button onclick='f_delete(${json._id})' class='btn btn-danger'>Delete</button> <button onclick='f_edit(${json._id})' class='btn btn-success'>Edit</button>`
-        tr.append(th_id, th_name, th_handle)
+        tr.append(th_stt, th_id, th_name, th_handle)
         tbody_list.append(tr)
     }else{
         tbody_list.innerHTML = ''
+        list_data.style.display = 'none'
         alert(json)
         console.log(json)
         console.log(typeof json)
