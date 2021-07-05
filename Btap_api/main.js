@@ -81,15 +81,13 @@ function show_list(json){
 
     for(let i=0;i<parsedObj.length;i++){
         let tr = document.createElement('tr');
-        let th_stt = document.createElement('th');
         let th_id = document.createElement('th');
         let th_name = document.createElement('th');
         let th_handle = document.createElement('th')
-        th_stt.innerHTML = i+1
         th_id.innerHTML = parsedObj[i]._id
         th_name.innerHTML = parsedObj[i].name
         th_handle.innerHTML = `<button onclick='f_delete(${parsedObj[i]._id})' class='btn btn-danger'>Delete</button> <button onclick='f_edit(${parsedObj[i]._id})' class='btn btn-success'>Edit</button>`
-        tr.append(th_stt, th_id, th_name, th_handle)
+        tr.append(th_id, th_name, th_handle)
         tbody_list.append(tr)
     }
 
