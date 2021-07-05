@@ -8,20 +8,30 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <button class="btn btn-success" id="btn_show">SHOW LIST</button>
-<div id="list-data">
-  <ul id="list">
+    <div id="list-data">
+      <table class="table">
+        <thead>
+          <th scope="col">STT</th>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody id="ok">
+          
+        </tbody>
+      </table>
+    </div>
     
-  </ul>
-</div>
-<div>
-    <input type="text" id="text"> <br> <br>
-    <button class="btn btn-primary" id="btn_get">GET</button>
-    <button class="btn btn-info" id="btn_post">POST</button>
-    <button class="btn btn-success" id="btn_put">PUT</button>
-    <button class="btn btn-danger" id="btn_delete">DELETE</button>
+<div class="content">  
+    <input type="text" id="text" placeholder="Nhập ID cần lấy">
+    <button class="btn btn-primary" id="btn_get">GET ONE</button><br><br>
+    <button class="btn btn-success" id="btn_show">GET ALL</button>
+    <button class="btn btn-info" id="btn_create">Create</button> 
+
+
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
